@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-feature-settings: "ss01" on, "cv01" on;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-bold;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.cobalt.DEFAULT");
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-catalog {
+    @apply mx-auto w-full max-w-content px-6 md:px-10;
+  }
+
+  .plate-number {
+    @apply font-mono text-sm tracking-widest text-cobalt;
+  }
+
+  .hairline {
+    @apply border-t border-line;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-ink text-paper px-6 py-3 rounded-full font-medium
+      transition-transform duration-300 ease-out-quart hover:-translate-y-0.5 hover:bg-cobalt
+      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 border border-ink/30 px-6 py-3 rounded-full font-medium
+      transition-colors duration-300 hover:border-ink hover:bg-ink/5;
+  }
+}
